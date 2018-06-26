@@ -30,12 +30,12 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Activity</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" value="Denver CO">Denver CO</a>
-                        <a class="dropdown-item" href="#" value="Damascus VA">Damascus VA</a>
-                        <a class="dropdown-item" href="#" value="Jekyll Island GA">Jekyll Island GA</a>
-                        <a class="dropdown-item" href="#" value="Estes Park CO">Estes Park CO</a>
-                        <a class="dropdown-item" href="#" value="Door County WI">Door County WI</a>
-                        <a class="dropdown-item" href="#" value="Fayetteville WV">Fayetteville WV</a>
+                        <a class="dropdown-item" href="#" value="Denver Colorado">Denver Colorado</a>
+                        <a class="dropdown-item" href="#" value="Damascus Virginia">Damascus Virginia</a>
+                        <a class="dropdown-item" href="#" value="Jekyll Island Georgia">Jekyll Island Georgia</a>
+                        <a class="dropdown-item" href="#" value="Estes Park Colorado">Estes Park Colorado</a>
+                        <a class="dropdown-item" href="#" value="Door County Wisconsin">Door County Wisconsin</a>
+                        <a class="dropdown-item" href="#" value="Fayetteville West Virginia">Fayetteville West Virginia</a>
                     </div>
                 </div>
             </section>
@@ -45,7 +45,11 @@
     <div id="headerContent" class="container">
         <div class="row">
             <div class="col-lg-2"></div>
-            <div class="col-lg-7"><div id="mainDisplayYelp"></div></div>
+            <div class="col-lg-7">
+                <div id="mainDisplayYelp">
+                    <ul class="bodyList bodyList-bordered search-results"></ul>
+                </div>
+            </div>
             <div class="col-lg-3">
                 <div class="card card-primary">
                     <div class="card-heading">
@@ -64,6 +68,7 @@
                         </form>            
                     </div>
                 </div>
+
                 <!-- Current Train-->
                 <div class="card card-primary">
                     <div class="card-heading">
@@ -81,6 +86,9 @@
                         </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="card card-primary" id="weatherWrapper">
+
                 </div>
             </div>
         </div>
