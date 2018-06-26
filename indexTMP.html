@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+  
+  <meta charset="UTF-8">
+  <title>Group Project 1.0</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://umn.bootcampcontent.com/assets/favicon-075eba76312e8421991a0c1f89a89ee81678bcde72319dd3e8047e2a47cd3a42.ico" id="favicon" />
+  <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
+  <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  
+</head>
+
+<body>
+    <header id="header">
+        <div id="headerContent" class="clearfix">
+            <section id="headerName">
+                <h1 class="txtCenter txtLarge txtWhite">HHJSS</h1>
+            </section>
+
+            <section id="headerNavigation" class="txtRight">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Activity</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" value="Denver Colorado">Denver Colorado</a>
+                        <a class="dropdown-item" href="#" value="Damascus Virginia">Damascus Virginia</a>
+                        <a class="dropdown-item" href="#" value="Jekyll Island Georgia">Jekyll Island Georgia</a>
+                        <a class="dropdown-item" href="#" value="Estes Park Colorado">Estes Park Colorado</a>
+                        <a class="dropdown-item" href="#" value="Door County Wisconsin">Door County Wisconsin</a>
+                        <a class="dropdown-item" href="#" value="Fayetteville West Virginia">Fayetteville West Virginia</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </header>
+    <!-- Employee Tracker -->
+    <div id="headerContent" class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-7">
+                <div id="mainDisplayYelp">
+                    <ul class="bodyList bodyList-bordered search-results"></ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card card-primary">
+                    <div class="card-heading">
+                        <p class="card-title"><strong>Add Yourself</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <!-- Entry Form -->
+                        <form>
+                            <div class="form-group row">
+                                <input class="form-control" id="first-name-input" placeholder="First Name" type="text">
+                            </div>
+                            <div class="form-group row">
+                                <input class="form-control" id="location-input" placeholder="Location" type="text">
+                            </div>
+                            <button class="btn btn-primary" id="add-visitor-btn" type="submit">Submit</button>
+                        </form>            
+                    </div>
+                </div>
+
+                <!-- Current Train-->
+                <div class="card card-primary">
+                    <div class="card-heading">
+                        <p class="card-title"><strong>Recent Visitors</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover" id='visitor-table'>
+                        <thead>
+                            <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card card-primary" id="weatherWrapper">
+
+                </div>
+            </div>
+        </div>
+  </div>
+      
+  
+<!-- JavaScript -->
+<script src="assets/javaScript/main.js"></script>
+
+</body>
+
+</html>

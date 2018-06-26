@@ -1,24 +1,7 @@
 
 // ###########################
-// ###  CLICK EVENTS HERE  ###
+// ### Initialize Firebase ###
 // ###########################
-// Get value of dropdown menu when clicked
-$(".dropdown-menu").on('click', 'a', function(){
-    // Display Chosen value at top location
-    $(".btn:first-child").text($(this).text());
-    $(".btn:first-child").val($(this).text());
-
-    // Get chosen value and call required functions
-    var dropdownMenu = $(this).text();
-    log( " Dropdown Value: "+dropdownMenu );
-    displayLocations(dropdownMenu, 'active', 10);
-    displayWeather(dropdownMenu);
-});
-
-// ###########################
-// ###   launchFirebase    ###
-// ###########################
-function launchFirebase() {
 var config = {
     apiKey: "AIzaSyDKFfJF_faqFCviogn94go02fmSzJcSkTA",
     authDomain: "bootcamp2018-6b307.firebaseapp.com",
@@ -77,11 +60,21 @@ database.ref("hhjss").limitToLast(4).on("child_added", function(childSnapshot, p
   // Add each train's data into the table
   $("#visitor-table > tbody").append("<tr><td>" + firstName + "</td><td>" + location + "</td></tr>");
 });
-}
+// ###########################
+// ###  END Of Firebase    ###
+// ###########################
 
-// ###########################
-// ###  displayLocations   ###
-// ###########################
+// Get value of dropdown menu when clicked
+$(".dropdown-menu").on('click', 'a', function(){
+    $(".btn:first-child").text($(this).text());
+    $(".btn:first-child").val($(this).text());
+
+    var dropdownMenu = $(this).text();
+    log( " Dropdown Value: "+dropdownMenu );
+    displayLocations(dropdownMenu, 'active', 10);
+    displayWeather(dropdownMenu);
+});
+  
 function displayLocations(location, term, results) {
     location = location.trim().split(' ').join('+'); // YELP API Needs plus sign seperated elements
     term = term.trim().split(' ').join('+'); // YELP API Needs plus sign seperated elements
@@ -89,7 +82,6 @@ function displayLocations(location, term, results) {
 
     var currentId = $(this).attr('data-name');
     var ratingVal = '';
-    var htmlElements = '';
     ratingVal = $('#dropdownMenuButton').val().toLowerCase();
     log(currentId+" "+ratingVal);
 
@@ -110,52 +102,39 @@ function displayLocations(location, term, results) {
         "Authorization": "Bearer X9n4FIgpRwzPPKGhBDdzeFrDN4-yEN2MuMI_Ly4C8YkaRD-RaT3TmvzXC6BJAvx_deD5Z16Z71BPc_0WcUUobK64I_AyCAXs7Efu_lv2bq6GTRwGZs2xRnAkp1IsW3Yx"
     }
     }).done(function(response) {
-        log('CORS anywhere response', response);
+        console.log('CORS anywhere response', response);
         log(queryURL);
         log(response);
 
-        $(".search-results").empty();
+        $("#mainDisplayYelp").empty();
 
         // storing the data from the AJAX request in the results variable
         var results = response.businesses;
-        var resultsLength = results.length;
 
         // Looping through each result item
-        for (var i = 0; i < resultsLength; i++) {
-          var resultsUrl = results[i].url;
-          var resultsName = results[i].name;
-          var resultsImageUrl = results[i].image_url
-          var resultsLocationAddress1 = results[i].location.address1;
-          var resultsLocationCity = results[i].location.city;
-          var resultsLocationState = results[i].location.state;
-          var resultsLocationZipCode = results[i].location.zip_code;
-          var resultsPhone = results[i].display_phone;
-          var resultsRating = results[i].rating;
+        for (var i = 0; i < results.length; i++) {
 
-          htmlElements += '<li class="regular-search-result"><div class="search-result natural-search-result">';  
-          htmlElements += '<div class="biz-listing-large">';
-          htmlElements += '';
-          htmlElements += '';     
-          htmlElements += '<div class="main-attributes"><div class="media-block media-block--12">';
-          htmlElements += '<div class="media-avatar"><div class="photo-box pb-90s">';  
-          htmlElements += '<a href="'+resultsUrl+'"> <img alt="'+resultsName+'" class="photo-box-img" height="90" src="'+resultsImageUrl+'" width="90"></a>';
-          htmlElements += '</div></div>';     
-          htmlElements += '<div class="media-story"><h3 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'"><span>'+resultsName+'</span></a> </span> </h3>';
-          htmlElements += '<div class="biz-rating biz-rating-large clearfix"><div class="i-stars">'+resultsRating+'</div></div>';  
-          htmlElements += '</div>';
-          htmlElements += '</div></div>';
-          htmlElements += '';     
-          htmlElements += '';
-          htmlElements += '<div class="secondary-attributes">';  
-          htmlElements += '<address>'+resultsLocationAddress1+', '+resultsLocationCity+' '+resultsLocationState+' '+resultsLocationZipCode+'</address>';
-          htmlElements += '<span class="offscreen">Phone number</span> <span class="biz-phone"> '+resultsPhone+' </span>';
-          htmlElements += '</div>';  
-          htmlElements += '';
-          htmlElements += '';
-          htmlElements += '</div>';     
-          htmlElements += '</div></li>';
+            // Creating and storing a div tag
+            var yelpDiv = $("<div>");
+            yelpDiv.addClass('txtIvory width320');
 
-          $(".search-results").append(htmlElements);
+            // Creating a paragraph tag with the result item's rating
+            var p = $("<p>").text("Rating: " + results[i].rating);
+
+            // Creating and storing an image tag
+            var yelpImage = $("<img>");
+            // Setting the src attribute of the image to a property pulled off the result item
+            yelpImage.attr("src", results[i].image_url);
+            yelpImage.attr("alt", results[i].name)
+            yelpImage.attr("height", "200px");
+            yelpImage.attr("data-state", "still");
+            yelpImage.attr("class", "gif");
+
+
+            yelpDiv.append(yelpImage);
+            yelpDiv.append(p);
+
+            $("#mainDisplayYelp").append(yelpDiv);
         }
 
     }).fail(function(jqXHR, textStatus) {
@@ -163,9 +142,7 @@ function displayLocations(location, term, results) {
     })
 
 }
-// ###########################
-// ###   displayWeather    ###
-// ###########################
+
 function displayWeather(location) {
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
     location = location.trim().split(' ').join(','); // API requires comma seperated location.
@@ -186,8 +163,8 @@ function displayWeather(location) {
         var currentCity = response.name;
         var currentHumidity = response.main.humidity +' %';
         var currentPressure = response.main.pressure;
-        var currentTempF = temperatureConverterF(response.main.temp) +' F ';
-        var currentTempC = temperatureConverterC(response.main.temp) +' C ';
+        var currentTempF = temperatureConverterF(response.main.temp) +' F';
+        var currentTempC = temperatureConverterC(response.main.temp) +' C';
         var currentTempMaxF = temperatureConverterF(response.main.temp_max) +' F ';
         var currentTempMaxC = temperatureConverterC(response.main.temp_max) +' C ';
         var currentTempMinF = temperatureConverterF(response.main.temp_min) +' F ';
@@ -213,27 +190,18 @@ function displayWeather(location) {
     });
 
 }
-// ###########################
-// ###     initialize      ###
-// ###########################
-function initialize() {
-  // The purpose of initialize is to display the default functionality
-  launchFirebase();
-}
 
-// ###########################
-// ### utility Functions   ###
-// ###########################
-function temperatureConverterF(valNum) {
-  valNum = parseFloat(valNum);
-  return (((valNum-273.15)*1.8)+32).toFixed(1);
-}
-function temperatureConverterC(valNum) {
-  valNum = parseFloat(valNum);
-  return (valNum-273.15).toFixed(1);
-}
 function log(i) {
   console.log(i);
 }
 
-initialize();  // Calling the default functionality
+function temperatureConverterF(valNum) {
+  valNum = parseFloat(valNum);
+  return ((valNum-273.15)*1.8)+32;
+}
+
+function temperatureConverterC(valNum) {
+  valNum = parseFloat(valNum);
+  return (valNum-273.15);
+}
+
