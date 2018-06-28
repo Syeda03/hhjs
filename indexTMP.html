@@ -16,7 +16,19 @@
   
   <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-  
+    <style >
+        ul.search-results li {list-style-type: none;}
+        .photo-box-img {margin-right:10px;}
+        img.mainImage {max-height:300px}
+        span.stars, span.stars span {
+            display: block;
+            background: url(assets/images/stars.png) 0 -16px repeat-x;
+            width: 80px;
+            height: 16px;
+        }
+        span.stars span {background-position: 0 0;}
+
+    </style>
 </head>
 
 <body>
@@ -30,12 +42,12 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Activity</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" value="Denver Colorado">Denver Colorado</a>
-                        <a class="dropdown-item" href="#" value="Damascus Virginia">Damascus Virginia</a>
-                        <a class="dropdown-item" href="#" value="Jekyll Island Georgia">Jekyll Island Georgia</a>
-                        <a class="dropdown-item" href="#" value="Estes Park Colorado">Estes Park Colorado</a>
-                        <a class="dropdown-item" href="#" value="Door County Wisconsin">Door County Wisconsin</a>
-                        <a class="dropdown-item" href="#" value="Fayetteville West Virginia">Fayetteville West Virginia</a>
+                        <a class="dropdown-item" href="#" value="sightSeeing">Sight Seeing</a>
+                        <a class="dropdown-item" href="#" value="beach">Beach</a>
+                        <a class="dropdown-item" href="#" value="hiking">Hiking</a>
+                        <a class="dropdown-item" href="#" value="history">History</a>
+                        <a class="dropdown-item" href="#" value="arts">arts</a>
+                        <a class="dropdown-item" href="#" value="skiing">skiing</a>
                     </div>
                 </div>
             </section>
@@ -44,10 +56,22 @@
     <!-- Employee Tracker -->
     <div id="headerContent" class="container">
         <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-7">
-                <div id="mainDisplayYelp">
-                    <ul class="bodyList bodyList-bordered search-results"></ul>
+            <div class="col-lg-9">
+                <div id="mainTitle"></div>
+                <div id="mainImage"></div>
+                <div id="mainDescription"></div>
+                <div id="mainSpinner"></div>
+                <div id="mainRestaurants">
+                    <div id="mainRestaurantsTitle"></div>
+                    <ul id="insertRestaurants" class="bodyList bodyList-bordered search-results "></ul>
+                </div>
+                <div id="mainLodging">
+                    <div id="mainLodgingTitle"></div>
+                    <ul id="insertLodging" class="bodyList bodyList-bordered search-results "></ul>
+                </div>
+                <div id="mainAttractions">
+                    <div id="mainAttractionsTitle"></div>
+                    <ul id="insertAttractions" class="bodyList bodyList-bordered search-results "></ul>
                 </div>
             </div>
             <div class="col-lg-3">
