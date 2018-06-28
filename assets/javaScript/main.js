@@ -71,30 +71,6 @@ function createHTML(results, i) {
     var resultsRating = results[i].rating;
 
     var htmlElements = ''
-<<<<<<< HEAD
-    htmlElements += '<div class="regular-search-result"><div class="search-result natural-search-result">';  
-    htmlElements += '<div class="biz-listing-large">';
-    htmlElements += '';
-    htmlElements += '';     
-    htmlElements += '<div class="main-attributes"><div class="media-block media-block--12">';
-    htmlElements += '<div class="media-avatar"><div class="photo-box pb-90s">';  
-    htmlElements += '<a href="'+resultsUrl+'"> <img alt="'+resultsName+'" class="photo-box-img" height="120" src="'+resultsImageUrl+'" width="200"></a>';
-    htmlElements += '</div></div>';     
-    htmlElements += '<div class="media-story"><h6 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'"><span>'+resultsName+'</span></a> </span> </h6>';
-    htmlElements += '<div class="biz-rating biz-rating-large clearfix"><div class="i-stars">'+resultsRating+'</div></div>';  
-    htmlElements += '</div>';
-    htmlElements += '</div></div>';
-    htmlElements += '';     
-    htmlElements += '';
-    htmlElements += '<div class="secondary-attributes">';  
-    htmlElements += '<address>'+resultsLocationAddress1+', '+resultsLocationCity+' '+resultsLocationState+' '+resultsLocationZipCode+'</address>';
-    htmlElements += '<span class="offscreen">Phone number</span> <span class="biz-phone"> '+resultsPhone+' </span>';
-    htmlElements += '</div>';  
-    htmlElements += '';
-    htmlElements += '';
-    htmlElements += '</div>';     
-    htmlElements += '</div>';
-=======
     htmlElements += '<li class="regular-search-result">';  
     htmlElements += '   <div class="container">';
     htmlElements += '       <div class="row">';
@@ -109,7 +85,6 @@ function createHTML(results, i) {
     htmlElements += '       </div>';
     htmlElements += '   </div>';
     htmlElements += '</li>';
->>>>>>> 5fa619fa0cea301989dcd14d17f41e19bc1dfaeb
     return htmlElements
 }
 
