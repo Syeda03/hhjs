@@ -1,4 +1,4 @@
-var yelpCatagory,hhjssMessages,currentCity,currentImage1,currentImage2,currentImage3,currentDescription;
+var yelpCatagory,currentCity,currentImage1,currentImage2,currentImage3,currentDescription;
 
 yelpCatagory = {
     sightSeeing: {
@@ -39,22 +39,6 @@ yelpCatagory = {
     }
 };
 
-hhjssMessages = {
-    displayWeatherTitle: "Current Weather in",
-    displayWeatherHumidity: "Humidity",
-    displayWeatherPressure: "Pressure",
-    displayWeatherTemp: "Temp",
-    displayWeatherMaxTemp: "Max Temp",
-    displayWeatherMinTemp: "Min Temp",
-    displayWeatherWind: "Wind speed/deg",
-    createHtmlPhone: "Phone number",
-    createHtmlRating: "Rating",
-    onClickRestaurantsHeading: "Recommended Restaurants",
-    onClickLodgingHeading: "Recommended Lodging",
-    onClickAttractionsHeading: "Recommended Attractions",
-
-}
-
 
 // ###########################
 // ###     createHTML      ###
@@ -69,18 +53,16 @@ function createHTML(results, i) {
     var resultsLocationZipCode = results[i].location.zip_code;
     var resultsPhone = results[i].display_phone;
     var resultsRating = results[i].rating;
-
     var htmlElements = ''
-<<<<<<< HEAD
-    htmlElements += '<div class="regular-search-result"><div class="search-result natural-search-result">';  
+    htmlElements += '<li class="regular-search-result"><div class="search-result natural-search-result">';  
     htmlElements += '<div class="biz-listing-large">';
     htmlElements += '';
     htmlElements += '';     
     htmlElements += '<div class="main-attributes"><div class="media-block media-block--12">';
     htmlElements += '<div class="media-avatar"><div class="photo-box pb-90s">';  
-    htmlElements += '<a href="'+resultsUrl+'"> <img alt="'+resultsName+'" class="photo-box-img" height="120" src="'+resultsImageUrl+'" width="200"></a>';
+    htmlElements += '<a href="'+resultsUrl+'"> <img alt="'+resultsName+'" class="photo-box-img" height="90" src="'+resultsImageUrl+'" width="90"></a>';
     htmlElements += '</div></div>';     
-    htmlElements += '<div class="media-story"><h6 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'"><span>'+resultsName+'</span></a> </span> </h6>';
+    htmlElements += '<div class="media-story"><h3 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'"><span>'+resultsName+'</span></a> </span> </h3>';
     htmlElements += '<div class="biz-rating biz-rating-large clearfix"><div class="i-stars">'+resultsRating+'</div></div>';  
     htmlElements += '</div>';
     htmlElements += '</div></div>';
@@ -93,26 +75,25 @@ function createHTML(results, i) {
     htmlElements += '';
     htmlElements += '';
     htmlElements += '</div>';     
-    htmlElements += '</div>';
-=======
-    htmlElements += '<li class="regular-search-result">';  
-    htmlElements += '   <div class="container">';
-    htmlElements += '       <div class="row">';
-    htmlElements += '           <div class="span3">';
-    htmlElements += '               <a href="'+resultsUrl+'" target="_blank"> <img alt="'+resultsName+'" class="photo-box-img" height="90" src="'+resultsImageUrl+'" width="90"></a>';
-    htmlElements += '           </div>';
-    htmlElements += '           <div class="span9">';
-    htmlElements += '               <h3 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'" target="_blank"><span>'+resultsName+'</span></a> </span> </h3>';
-    htmlElements += '               <div class="biz-rating biz-rating-large clearfix">'+hhjssMessages.createHtmlRating+': <span class="stars">'+resultsRating+'</span></div>';
-    htmlElements += '               <address>'+resultsLocationAddress1+', '+resultsLocationCity+' '+resultsLocationState+' '+resultsLocationZipCode+'<br/><span class="offscreen">'+hhjssMessages.createHtmlPhone+'</span> <span class="biz-phone"> '+resultsPhone+' </span></address>';
-    htmlElements += '           </div>';
-    htmlElements += '       </div>';
-    htmlElements += '   </div>';
-    htmlElements += '</li>';
->>>>>>> 5fa619fa0cea301989dcd14d17f41e19bc1dfaeb
+    htmlElements += '</div></li>';
     return htmlElements
 }
+/*
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <a href="'+resultsUrl+'"> <img alt="'+resultsName+'" class="photo-box-img" height="90" src="'+resultsImageUrl+'" width="90"></a>
+    </div>
+    <div class="span10">
+      <h3 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'"><span>'+resultsName+'</span></a> </span> </h3>
+      <div class="biz-rating biz-rating-large clearfix"><div class="i-stars">'+resultsRating+'</div></div>
+      <address>'+resultsLocationAddress1+', '+resultsLocationCity+' '+resultsLocationState+' '+resultsLocationZipCode+'</address>
+      <span class="offscreen">Phone number</span> <span class="biz-phone"> '+resultsPhone+' </span>
+    </div>
+  </div>
+</div>
 
+*/
 
 // ###########################
 // ###  CLICK EVENTS HERE  ###
@@ -141,24 +122,11 @@ $(".dropdown-menu").on('click', 'a', function(){
     $('#insertAttractions').empty();
     $('#weatherWrapper').empty();
 
-    $("#mainTitle").html("<h1>"+currentCity+"</h1>")
-    $("#mainRestaurantsTitle").html("<h3>"+hhjssMessages.onClickRestaurantsHeading+"</h3>");
-    $("#mainLodgingTitle").html("<h3>"+hhjssMessages.onClickLodgingHeading+"</h3>");
-    $("#mainAttractionsTitle").html("<h3>"+hhjssMessages.onClickAttractionsHeading+"</h3>");
-    
     var mainImage = $("<img>");
     // Setting the src attribute of the image to a property pulled off the result item
     mainImage.attr("src", "assets/images/"+currentImage1);
     mainImage.attr("alt", dropdownMenu)
     mainImage.attr("class", "mainImage");
-
-    // $("#dropdownMenuButton").click(function(){
-    //     $("#coverImage").hide();
-    //     displayLocations();
-        
-        
-    // });
-    
     
     $('#mainImage').append(mainImage);
     $('#mainDescription').append(currentDescription);
@@ -167,7 +135,6 @@ $(".dropdown-menu").on('click', 'a', function(){
     displayLocations(currentCity, 'lodging', 'insertLodging');
     displayLocations(currentCity, 'attractions', 'insertAttractions');
     displayWeather(currentCity);
- 
     
 });
 
@@ -227,10 +194,10 @@ function launchFirebase() {
         var firstName = childSnapshot.val().name;
         var location = childSnapshot.val().location;
 
-        // User Info
+        // Train Info
         log('firstName: ' + firstName + ' location: ' + location);
 
-        // Add each user's data into the table: use prepend so latest update is on top
+        // Add each train's data into the table: use prepend so latest update is on top
         $("#visitor-table > tbody").prepend("<tr><td>" + firstName + "</td><td>" + location + "</td></tr>");
     });
 }
@@ -239,8 +206,8 @@ function launchFirebase() {
 // ###  displayLocations   ###
 // ###########################
 function displayLocations(location, term, className) {
-    location = location.trim().split(' ').join('+');    // YELP API requires plus sign seperated elements
-    term = term.trim().split(' ').join('+');            // YELP API requires plus sign seperated elements
+    location = location.trim().split(' ').join('+'); // YELP API requires plus sign seperated elements
+    term = term.trim().split(' ').join('+'); // YELP API requires plus sign seperated elements
     log('displayLocation- location: '+location+ ' term: ' +term+ ' className: ' +className);
 
     var currentId = $(this).attr('data-name');
@@ -248,8 +215,6 @@ function displayLocations(location, term, className) {
     var htmlElements = '';
     ratingVal = $('#dropdownMenuButton').val().toLowerCase();
     log(currentId+" "+ratingVal);
-
-    $('#mainSpinner').html('<img id="spinnerGIF" src="assets/images/AJAX_Spinner.gif">');
 
     var originalURL = "https://api.yelp.com/v3/businesses/search?location="+location+"&sortby=rating&term=" + term;
     var queryURL = "https://cors-anywhere.herokuapp.com/" + originalURL;
@@ -270,8 +235,6 @@ function displayLocations(location, term, className) {
         log(queryURL);
         log(response);
 
-        $('#spinnerGIF').css('display','none'); //Display Spinner while loading
-
         // storing the data from the AJAX request in the results variable
         var results = response.businesses;
         // var resultsLength = results.length;
@@ -281,8 +244,6 @@ function displayLocations(location, term, className) {
         for (var i = 0; i < resultsLength; i++) {
             $("#"+className+"").append(createHTML(results,i));
         }
-
-        $('span.stars').stars();     //Convert Numeric Rating to Starts
 
     }).fail(function(jqXHR, textStatus) {
         console.error(textStatus)
@@ -320,20 +281,22 @@ function displayWeather(location) {
         var currentTempMinC = temperatureConverterC(response.main.temp_min) +' C ';
         var currentWindSpeed = response.wind.speed;
         var currentWindDeg = response.wind.deg;
-        // Transfer content to HTML  
+        // Transfer content to HTML
         htmlElements += '<div class="card-heading" id="currentWeather">';  
-        htmlElements += '<p class="card-title"><strong>'+hhjssMessages.displayWeatherTitle+' '+currentCity+'</strong></p>';
+        htmlElements += '<p class="card-title"><strong>Current Weather in '+currentCity+'</strong></p>';
         htmlElements += '</div>';
         htmlElements += '<div class="card-body" id="weatherWrapper">';     
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherHumidity+': '+currentHumidity+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherPressure+': '+currentPressure+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherTemp+': '+currentTempF+'/'+currentTempC+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherMaxTemp+': '+currentTempMaxF+'/'+currentTempMaxC+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherMinTemp+': '+currentTempMinF+'/'+currentTempMinC+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherWind+': '+currentWindSpeed+'/'+currentWindDeg+'</div>';
+        htmlElements += '<div>Humidity: '+currentHumidity+'</div>';
+        htmlElements += '<div>Pressure: '+currentPressure+'</div>';
+        htmlElements += '<div>Temp: '+currentTempF+'/'+currentTempC+'</div>';
+        htmlElements += '<div>Max Temp: '+currentTempMaxF+'/'+currentTempMaxC+'</div>';
+        htmlElements += '<div>Min Temp: '+currentTempMinF+'/'+currentTempMinC+'</div>';
+        htmlElements += '<div>Wind speed/deg: '+currentWindSpeed+'/'+currentWindDeg+'</div>';
         htmlElements += '</div>';
 
         $('#weatherWrapper').append(htmlElements);
+  
+
     });
 
 }
@@ -343,7 +306,6 @@ function displayWeather(location) {
 // ###########################
 function initialize() {
   // The purpose of initialize is to display the default functionality
-
   launchFirebase();
 }
 
@@ -360,18 +322,6 @@ function temperatureConverterC(valNum) {
 }
 function log(i) {
   // console.log(i);
-}
-$.fn.stars = function () {
-    return $(this).each(function() {
-        // Get the value
-        var val = parseFloat($(this).html());
-        // Make sure that the value is in 0 - 5 range, multiply to get width
-        var size = Math.max(0, (Math.min(5, val))) * 16;
-        // Create stars holder
-        var $span = $('<span />').width(size);
-        // Replace the numerical value with stars
-        $(this).html($span);
-    });
 }
 
 initialize();  // Calling the default functionality
