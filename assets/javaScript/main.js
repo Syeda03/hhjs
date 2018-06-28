@@ -54,15 +54,15 @@ function createHTML(results, i) {
     var resultsPhone = results[i].display_phone;
     var resultsRating = results[i].rating;
     var htmlElements = ''
-    htmlElements += '<li class="regular-search-result"><div class="search-result natural-search-result">';  
+    htmlElements += '<div class="regular-search-result"><div class="search-result natural-search-result">';  
     htmlElements += '<div class="biz-listing-large">';
     htmlElements += '';
     htmlElements += '';     
     htmlElements += '<div class="main-attributes"><div class="media-block media-block--12">';
     htmlElements += '<div class="media-avatar"><div class="photo-box pb-90s">';  
-    htmlElements += '<a href="'+resultsUrl+'"> <img alt="'+resultsName+'" class="photo-box-img" height="90" src="'+resultsImageUrl+'" width="90"></a>';
+    htmlElements += '<a href="'+resultsUrl+'"> <img alt="'+resultsName+'" class="photo-box-img" height="120" src="'+resultsImageUrl+'" width="200"></a>';
     htmlElements += '</div></div>';     
-    htmlElements += '<div class="media-story"><h3 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'"><span>'+resultsName+'</span></a> </span> </h3>';
+    htmlElements += '<div class="media-story"><h6 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'"><span>'+resultsName+'</span></a> </span> </h6>';
     htmlElements += '<div class="biz-rating biz-rating-large clearfix"><div class="i-stars">'+resultsRating+'</div></div>';  
     htmlElements += '</div>';
     htmlElements += '</div></div>';
@@ -75,7 +75,7 @@ function createHTML(results, i) {
     htmlElements += '';
     htmlElements += '';
     htmlElements += '</div>';     
-    htmlElements += '</div></li>';
+    htmlElements += '</div>';
     return htmlElements
 }
 
@@ -111,6 +111,14 @@ $(".dropdown-menu").on('click', 'a', function(){
     mainImage.attr("src", "assets/images/"+currentImage1);
     mainImage.attr("alt", dropdownMenu)
     mainImage.attr("class", "mainImage");
+
+    // $("#dropdownMenuButton").click(function(){
+    //     $("#coverImage").hide();
+    //     displayLocations();
+        
+        
+    // });
+    
     
     $('#mainImage').append(mainImage);
     $('#mainDescription').append(currentDescription);
@@ -178,10 +186,10 @@ function launchFirebase() {
         var firstName = childSnapshot.val().name;
         var location = childSnapshot.val().location;
 
-        // Train Info
+        // User Info
         log('firstName: ' + firstName + ' location: ' + location);
 
-        // Add each train's data into the table: use prepend so latest update is on top
+        // Add each user's data into the table: use prepend so latest update is on top
         $("#visitor-table > tbody").prepend("<tr><td>" + firstName + "</td><td>" + location + "</td></tr>");
     });
 }
@@ -290,6 +298,7 @@ function displayWeather(location) {
 // ###########################
 function initialize() {
   // The purpose of initialize is to display the default functionality
+
   launchFirebase();
 }
 
