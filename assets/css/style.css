@@ -15,7 +15,9 @@ body{
   .dropdown-menu{
     background-color: rgb(243, 190, 93);
   }
-
+.container{
+  width:100%;
+}
   .navbar-brand{
     margin-left: 500px;
     color: teal;
