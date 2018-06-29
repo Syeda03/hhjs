@@ -126,6 +126,14 @@ $(".dropdown-menu").on('click', 'a', function(){
     mainImage.attr("src", "assets/images/"+currentImage1);
     mainImage.attr("alt", dropdownMenu)
     mainImage.attr("class", "mainImage");
+
+    // $("#dropdownMenuButton").click(function(){
+    //     $("#coverImage").hide();
+    //     displayLocations();
+        
+        
+    // });
+    
     
     $('#mainImage').append(mainImage);
     $('#mainDescription').append(currentDescription);
@@ -194,10 +202,10 @@ function launchFirebase() {
         var firstName = childSnapshot.val().name;
         var location = childSnapshot.val().location;
 
-        // Train Info
+        // User Info
         log('firstName: ' + firstName + ' location: ' + location);
 
-        // Add each train's data into the table: use prepend so latest update is on top
+        // Add each user's data into the table: use prepend so latest update is on top
         $("#visitor-table > tbody").prepend("<tr><td>" + firstName + "</td><td>" + location + "</td></tr>");
     });
 }
@@ -310,6 +318,7 @@ function displayWeather(location) {
 // ###########################
 function initialize() {
   // The purpose of initialize is to display the default functionality
+
   launchFirebase();
 }
 
