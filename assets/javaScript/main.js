@@ -3,7 +3,7 @@ var yelpCatagory,hhjssMessages,currentCity,currentImage1,currentImage2,currentIm
 yelpCatagory = {
     sightSeeing: {
         city:"Grotto of Redemption Iowa",
-        image: ['Iowa1.jpg', 'Iowa2.jpg', 'Iowa3.jpg'],
+        image: ['Iowa1.jpg', 'Iown2.jpg', 'Iown3.jpg'],
         description: "The Shrine of the Grotto of the Redemption is a religious shrine located in West Bend, Iowa, in the Roman Catholic Diocese of Sioux City. A conglomeration of nine grottos depicting scenes in the life of Jesus, the Grotto contains a large collection of minerals and petrifications and is believed to be the largest grotto in the world. It is also considered to be the world's most complete man-made collection of minerals, fossils, shells, and petrifications in one place.",
         weatherURL: "",
     },
@@ -40,6 +40,7 @@ yelpCatagory = {
 };
 
 hhjssMessages = {
+    displayWeatherInformed:"Be Informed!",
     displayWeatherTitle: "Current Weather in",
     displayWeatherHumidity: "Humidity",
     displayWeatherPressure: "Pressure",
@@ -121,11 +122,29 @@ $(".dropdown-menu").on('click', 'a', function(){
     $("#mainLodgingTitle").html("<h3>"+hhjssMessages.onClickLodgingHeading+"</h3>");
     $("#mainAttractionsTitle").html("<h3>"+hhjssMessages.onClickAttractionsHeading+"</h3>");
     
-    var mainImage = $("<img>");
+    var mainImageLi1 = $("<li>");
+    var mainImage1 = $("<img>");
     // Setting the src attribute of the image to a property pulled off the result item
-    mainImage.attr("src", "assets/images/"+currentImage1);
-    mainImage.attr("alt", dropdownMenu)
-    mainImage.attr("class", "mainImage");
+    mainImage1.attr("src", "assets/images/"+currentImage1);
+    mainImage1.attr("alt", dropdownMenu);
+    mainImage1.attr("class", "mainImage");
+    mainImage1 = mainImageLi1.append(mainImage1);
+
+    var mainImageLi2 = $("<li>");    
+    var mainImage2 = $("<img>");
+    // Setting the src attribute of the image to a property pulled off the result item
+    mainImage2.attr("src", "assets/images/"+currentImage2);
+    mainImage2.attr("alt", dropdownMenu);
+    mainImage2.attr("class", "mainImage");
+    mainImage2 = mainImageLi2.append(mainImage2);
+
+    var mainImageLi3 = $("<li>");
+    var mainImage3 = $("<img>");
+    // Setting the src attribute of the image to a property pulled off the result item
+    mainImage3.attr("src", "assets/images/"+currentImage3);
+    mainImage3.attr("alt", dropdownMenu);
+    mainImage3.attr("class", "mainImage");
+    mainImage3 = mainImageLi3.append(mainImage3);
 
     // $("#dropdownMenuButton").click(function(){
     //     $("#coverImage").hide();
@@ -135,7 +154,9 @@ $(".dropdown-menu").on('click', 'a', function(){
     // });
     
     
-    $('#mainImage').append(mainImage);
+    $('#mainImage').append(mainImage1);
+    $('#mainImage').append(mainImage2);
+    $('#mainImage').append(mainImage3);
     $('#mainDescription').append(currentDescription);
   
     displayLocations(currentCity, 'restaurants', 'insertRestaurants');
@@ -295,17 +316,22 @@ function displayWeather(location) {
         var currentTempMinC = temperatureConverterC(response.main.temp_min) +' C ';
         var currentWindSpeed = response.wind.speed;
         var currentWindDeg = response.wind.deg;
-        // Transfer content to HTML  
-        htmlElements += '<div class="card-heading" id="currentWeather">';  
-        htmlElements += '<p class="card-title"><strong>'+hhjssMessages.displayWeatherTitle+' '+currentCity+'</strong></p>';
-        htmlElements += '</div>';
-        htmlElements += '<div class="card-body" id="weatherWrapper">';     
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherHumidity+': '+currentHumidity+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherPressure+': '+currentPressure+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherTemp+': '+currentTempF+'/'+currentTempC+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherMaxTemp+': '+currentTempMaxF+'/'+currentTempMaxC+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherMinTemp+': '+currentTempMinF+'/'+currentTempMinC+'</div>';
-        htmlElements += '   <div>'+hhjssMessages.displayWeatherWind+': '+currentWindSpeed+'/'+currentWindDeg+'</div>';
+        // Transfer content to HTML
+        htmlElements += '<div class="card border-success mb-3">';
+        htmlElements += '   <div class="card-header">'+hhjssMessages.displayWeatherInformed+'</div>';
+        htmlElements += '   <div class="card-body">';  
+        htmlElements += '       <div class="card-heading" id="currentWeather">';  
+        htmlElements += '           <p class="card-title"><strong>'+hhjssMessages.displayWeatherTitle+' '+currentCity+'</strong></p>';
+        htmlElements += '       </div>';
+        htmlElements += '       <div class="card-body" id="weatherWrapper">';     
+        htmlElements += '           <div>'+hhjssMessages.displayWeatherHumidity+': '+currentHumidity+'</div>';
+        htmlElements += '           <div>'+hhjssMessages.displayWeatherPressure+': '+currentPressure+'</div>';
+        htmlElements += '           <div>'+hhjssMessages.displayWeatherTemp+': '+currentTempF+'/'+currentTempC+'</div>';
+        htmlElements += '           <div>'+hhjssMessages.displayWeatherMaxTemp+': '+currentTempMaxF+'/'+currentTempMaxC+'</div>';
+        htmlElements += '           <div>'+hhjssMessages.displayWeatherMinTemp+': '+currentTempMinF+'/'+currentTempMinC+'</div>';
+        htmlElements += '           <div>'+hhjssMessages.displayWeatherWind+': '+currentWindSpeed+'/'+currentWindDeg+'</div>';
+        htmlElements += '       </div>';
+        htmlElements += '   </div>';
         htmlElements += '</div>';
 
         $('#weatherWrapper').append(htmlElements);
@@ -320,6 +346,10 @@ function initialize() {
   // The purpose of initialize is to display the default functionality
 
   launchFirebase();
+
+  $('#loadImage').css('background-image', 'url(assets/images/cover-photo.jpg)');
+  $('#loadImage').css('background-repeat', 'no-repeat');
+  $('#loadImage').css('background-width', '780px');
 }
 
 // ###########################

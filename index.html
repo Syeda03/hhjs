@@ -32,52 +32,29 @@
     </header>
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg">
-            <span class="navbar-brand mb-0 h1">Navbar</span>
-            <a class="navbar-brand" style="margin-left: 400px">Never stop doing things for the first time.</a>
-    
-            <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lets go Places!</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" value="sightSeeing">Sight Seeing</a>
-                        <a class="dropdown-item" href="#" value="beach">Beach</a>
-                        <a class="dropdown-item" href="#" value="hiking">Hiking</a>
-                        <a class="dropdown-item" href="#" value="history">History</a>
-                        <a class="dropdown-item" href="#" value="arts">arts</a>
-                        <a class="dropdown-item" href="#" value="skiing">skiing</a>
+        <a class="navbar-brand" style="margin-left: 400px">Never stop doing things for the first time.</a>
 
-                    </div>
-                </div>     
-        </nav>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lets go Places!</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#" value="sightSeeing">Sight Seeing</a>
+                <a class="dropdown-item" href="#" value="beach">Beach</a>
+                <a class="dropdown-item" href="#" value="hiking">Hiking</a>
+                <a class="dropdown-item" href="#" value="history">History</a>
+                <a class="dropdown-item" href="#" value="arts">arts</a>
+                <a class="dropdown-item" href="#" value="skiing">skiing</a>
+            </div>
+        </div>     
+    </nav>
         <!--end -->
 
-        <div id="headerContent" class="container-fluid">
-            <div class="row">
-                    <div class="col-sm-2">
-                        <div class="card border-success mb-3">
-                                <div class="card-header" style="color:black; font-weight: bold;text-align: center";>
-                                        Be Informed!
-                                </div>
-
-                        <div class="card-body" id="weatherWrapper"></div>
-                        </div>
-                    </div> 
-            
-                    <div class="col-sm-10">
-                        
-                        <div id="mainImage"></div>
-                        <div id="mainDescription"></div>
-                        <hr>
-                    </div>
-             
-            </div>
-                        
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="card border-success mb-3">
-                        <div class="card-header" style="color:black; font-weight: bold;text-align: center";>
-                            Tell us about Yourself
-                        </div>
-                        <div class="card-body">
+    <div id="headerContent" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="weatherWrapper"></div>
+                <div class="card border-success mb-3">
+                    <div class="card-header" style="color:black; font-weight: bold;text-align: center">Tell us about Yourself</div>
+                    <div class="card-body">
                         <form>
                             <div class="form-group row">
                                 <input class="form-control" id="first-name-input" placeholder="Name" type="text">
@@ -86,75 +63,49 @@
                                 <input class="form-control" id="location-input" placeholder="Location" type="text">
                             </div>
                             <button class="btn btn-primary" id="add-visitor-btn" type="submit">Submit</button>
-                        </form>        
-                        
-                        <br>
-                      <div class="card card-primary">
+                        </form><br>
+                        <div class="card card-primary">
                             <div class="card-heading">
                                 <p class="card-title" style="color:black; font-weight: bold;text-align: center;margin-top: 5px;margin-bottom: 5px";><strong>Recent Visitors</strong></p>
                             </div> 
-                            
                             <div class="card-body">
                                 <table class="table table-hover" id='visitor-table'>
-                                <thead>
-                                    <tr>
-                                    <th>Name</th>
-                                    <th>Location</th>
-                                    </tr>
-                                </thead>
-                                <tbody> 
-                                </tbody>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Location</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
-                        </div> 
-                    </div>
+                    </div> 
                 </div>
-
-                             
-                <div class="col-sm-10">
-                    <div class="card-header" style="color:black; font-weight: bold;text-align: center";>
-
-                        <div class="card-01" id="mainRestaurants" style="max-width: 18rem;">
-                                <div class="card-body">
-                                    <div id="insertRestaurants" class="bodyList bodyList-bordered search-results "></div>
-                                </div>
-                         </div>
-                    
-                    <div class="card-header" style="color:black; font-weight: bold;text-align: center";>
-
-                         <div class="card-02" id="mainLodging" style="max-width: 18rem;">
-                                <div class="card-body">
-                                    <div id= "insertLodging" class="bodyList bodyList-bordered search-results "></div>
-                                </div>
-                         </div>
-                    
-                    <div class="card-header" style="color:black; font-weight: bold;text-align: center";>
-
-                         <div class="card-03" id="mainAttractions" style="max-width: 18rem;">
-                                <div class="card-body">
-                                    <div id"insertAttractions" class="bodyList bodyList-bordered search-results "></div>
-                                </div>
-                         </div> 
-                </div> 
-                    <!-- <div id="mainRestaurants">
-                        <div id="insertRestaurants" class="bodyList bodyList-bordered search-results "></div>
-                    </div>
-                    <div id="mainLodging">
-                        <div id="insertLodging" class="bodyList bodyList-bordered search-results "></div>
-                    </div>
-                    <div id="mainAttractions">
-                        <div id="insertAttractions" class="bodyList bodyList-bordered search-results "></div>
-                    </div>
-
-                    </div>  -->
-
-               
+            </div> 
+    
+            <div class="col-sm-10" id="loadImage">
+                <div id="mainTitle"></div>
+                <div id="mainImage"></div>
+                <div id="mainDescription"></div>
+                <div id="mainSpinner"></div>
+                <div id="mainRestaurants">
+                    <div id="mainRestaurantsTitle"></div>
+                    <ul id="insertRestaurants" class="bodyList bodyList-bordered search-results "></ul>
+                </div>
+                <div id="mainLodging">
+                    <div id="mainLodgingTitle"></div>
+                    <ul id="insertLodging" class="bodyList bodyList-bordered search-results "></ul>
+                </div>
+                <div id="mainAttractions">
+                    <div id="mainAttractionsTitle"></div>
+                    <ul id="insertAttractions" class="bodyList bodyList-bordered search-results "></ul>
+                </div>
+                <hr>
             </div>
         </div>
-</div>
-        
-        
+    </div>
+   
 <script type="text/javascript" src="assets/javaScript/main.js"></script>
 
 </body>
