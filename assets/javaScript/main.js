@@ -98,6 +98,7 @@ $(".dropdown-menu").on('click', 'a', function(){
     // Display Chosen value at top location
     $(".btn:first-child").text($(this).text());
     $(".btn:first-child").val($(this).text());
+    $('#loadImage').css('background-image', 'none');
 
     // Get chosen value and call required functions
     var dropdownMenu = $(this).attr('value');
@@ -318,7 +319,7 @@ function displayWeather(location) {
         var currentWindDeg = response.wind.deg;
         // Transfer content to HTML
         htmlElements += '<div class="card border-success mb-3">';
-        htmlElements += '   <div class="card-header">'+hhjssMessages.displayWeatherInformed+'</div>';
+        htmlElements += '   <div class="card-header" style="color:black; font-weight:bold; text-align:center">'+hhjssMessages.displayWeatherInformed+'</div>';
         htmlElements += '   <div class="card-body">';  
         htmlElements += '       <div class="card-heading" id="currentWeather">';  
         htmlElements += '           <p class="card-title"><strong>'+hhjssMessages.displayWeatherTitle+' '+currentCity+'</strong></p>';
@@ -349,7 +350,8 @@ function initialize() {
 
   $('#loadImage').css('background-image', 'url(assets/images/cover-photo.jpg)');
   $('#loadImage').css('background-repeat', 'no-repeat');
-  $('#loadImage').css('background-width', '780px');
+  $('#loadImage').css('width', '780px');
+  $('#loadImage').css('background-size', '100% 100%');
 }
 
 // ###########################
