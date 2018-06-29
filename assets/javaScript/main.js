@@ -9,31 +9,31 @@ yelpCatagory = {
     },
     beach: {
         city:"Myrtle Beach South Carolina",
-        image: ['SC.jpg', 'SC2.jpg', 'SC3.jpg'],
+        image: ['SC4.jpg', 'SC5.jpg', 'SC6.jpg'],
         description: "Myrtle Beach, a city and vacation resort on South Carolina’s Atlantic coast, is the hub of the Grand Strand, a 60-mile string of beaches. It’s also known for its celebrity-designed golf courses. Along its beachfront boardwalk are arcades, souvenir stands and restaurants, as well as the old-fashioned Family Kingdom amusement park and the SkyWheel, one of the country’s tallest Ferris wheels.",
         weatherURL: "",
     },
     hiking: {
         city:"Glenwood Springs Colorado",
-        image: ['GlenwoodSprings1.jpg', 'GlenwoodSprings2.jpg', 'GlenwoodSprings3.jpg'],
+        image: ['GlenwoodSprings1.jpg', 'GlenwoodSprings5.jpg', 'GlenwoodSprings3.jpg'],
         description: "Glenwood Springs is a resort city in Colorado known for its hot springs. It sits in the rugged Rocky Mountains, surrounded by the vast White River National Forest. Glenwood Canyon is rich with wildlife and features Hanging Lake, with its striking turquoise waters. Glenwood Caverns are ancient underground caves. Glenwood Caverns Adventure Park has roller coasters and canyon swings overlooking the Colorado River.",
         weatherURL: "",
     },
     skiing: {
         city:"Anchorage Alaska",
-        image: ['Alaska.jpg', 'Alaska2.jpg', 'Alaska3.jpg'],
+        image: ['Alaska.jpg', 'Alaska2.jpg', 'Alaska4.jpg'],
         description: "Anchorage, Alaska’s largest city in the south-central part of the state on the Cook Inlet. It's known for its cultural sites, including the Alaska Native Heritage Center, which displays traditional crafts, stage dances, and presents replicas of dwellings from the area’s indigenous groups. The city is also a gateway to nearby wilderness areas and mountains including the Chugach, Kenai and Talkeetna.",
         weatherURL: "",
     },
     history: {
         city:"Savannah Georgia",
-        image: ['Savannah1.jpg', 'Savannah2.jpg', 'Savannah3.jpg'],
+        image: ['Savannah4.jpg', 'Savannah2.jpg', 'Savannah3.jpg'],
         description: "Savannah, a coastal Georgia city, is separated from South Carolina by the Savannah River. It’s known for manicured parks, horse-drawn carriages and antebellum architecture. Its historic district is filled with cobblestoned squares and parks such as Forsyth Park shaded by oak trees covered with Spanish moss.",
         weatherURL: "",
     },
     arts: {
         city:"San Juan Puerto Rico",
-        image: ['SanJuan1.jpg', 'SanJuan2.jpg', 'SanJuan3.jpg'],
+        image: ['SanJuan5.jpg', 'SanJuan6.jpg', 'SanJuan4.jpg' ],
         description: "San Juan, Puerto Rico's capital and largest city, sits on the island's Atlantic coast. Its widest beach fronts the Isla Verde resort strip, known for its bars, nightclubs and casinos. Cobblestoned Old San Juan features colorful Spanish colonial buildings and 16th-century landmarks including El Morro and La Fortaleza, massive fortresses with sweeping ocean views, as well as the Paseo de la Princesa bayside promenade.",
         weatherURL: "",
     }
@@ -79,7 +79,7 @@ function createHTML(results, i) {
     htmlElements += '               <a href="'+resultsUrl+'" target="_blank"> <img alt="'+resultsName+'" class="photo-box-img" height="90" src="'+resultsImageUrl+'" width="90"></a>';
     htmlElements += '           </div>';
     htmlElements += '           <div class="span9">';
-    htmlElements += '               <h3 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'" target="_blank"><span>'+resultsName+'</span></a> </span> </h3>';
+    htmlElements += '               <h5 class="search-result-title"> <span class="indexed-biz-name">'+(i+1)+'. <a class="biz-name" href="'+resultsUrl+'" target="_blank"><span>'+resultsName+'</span></a> </span> </h5>';
     htmlElements += '               <div class="biz-rating biz-rating-large clearfix">'+hhjssMessages.createHtmlRating+': <span class="stars">'+resultsRating+'</span></div>';
     htmlElements += '               <address>'+resultsLocationAddress1+', '+resultsLocationCity+' '+resultsLocationState+' '+resultsLocationZipCode+'<br/><span class="offscreen">'+hhjssMessages.createHtmlPhone+'</span> <span class="biz-phone"> '+resultsPhone+' </span></address>';
     htmlElements += '           </div>';
@@ -319,7 +319,7 @@ function displayWeather(location) {
         var currentWindDeg = response.wind.deg;
         // Transfer content to HTML
         htmlElements += '<div class="card border-success mb-3">';
-        htmlElements += '   <div class="card-header" style="color:black; font-weight:bold; text-align:center">'+hhjssMessages.displayWeatherInformed+'</div>';
+        htmlElements += '   <div class="card-header" style="background-color: orangered;color:black; font-weight:bold; text-align:center">'+hhjssMessages.displayWeatherInformed+'</div>';
         htmlElements += '   <div class="card-body">';  
         htmlElements += '       <div class="card-heading" id="currentWeather">';  
         htmlElements += '           <p class="card-title"><strong>'+hhjssMessages.displayWeatherTitle+' '+currentCity+'</strong></p>';

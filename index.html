@@ -19,20 +19,6 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!--end js lib-->
-    
-        <style >
-        ul.search-results li {list-style-type: none;}
-        .photo-box-img {margin-right:10px;}
-        img.mainImage {max-height:300px}
-        span.stars, span.stars span {
-            display: block;
-            background: url(assets/images/stars.png) 0 -16px repeat-x;
-            width: 80px;
-            height: 16px;
-        }
-        span.stars span {background-position: 0 0;}
-
-    </style>
 
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
@@ -40,21 +26,21 @@
 
 <body>
     <header>
-        <h1>The Beaten Path</h1>
+        <h1><strong>The Beaten Path</strong></h1>
     </header>
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg">
-        <a class="navbar-brand" style="margin-left: 400px">Never stop doing things for the first time.</a>
+        <div class="navbar-brand" style="color: black"><strong> Never stop doing things for the first time!</strong></div>
 
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lets go Places!</button>
+            <button class="btn btn-secondary dropdown-toggle" type="button"  style="background-color: orangered" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lets go Places!</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#" value="sightSeeing">Sight Seeing</a>
-                <a class="dropdown-item" href="#" value="beach">Beach</a>
-                <a class="dropdown-item" href="#" value="hiking">Hiking</a>
-                <a class="dropdown-item" href="#" value="history">History</a>
-                <a class="dropdown-item" href="#" value="arts">arts</a>
-                <a class="dropdown-item" href="#" value="skiing">skiing</a>
+                <a class="dropdown-item" href="#" value="sightSeeing"><strong>Sight Seeing</strong></a>
+                <a class="dropdown-item" href="#" value="beach"><strong>Beach</strong></a>
+                <a class="dropdown-item" href="#" value="hiking"><strong>Hiking</strong></a>
+                <a class="dropdown-item" href="#" value="history"><strong>History</strong></a>
+                <a class="dropdown-item" href="#" value="arts"><strong>Arts</strong></a>
+                <a class="dropdown-item" href="#" value="skiing"><strong>Skiing</strong></a>
             </div>
         </div>     
     </nav>
@@ -65,7 +51,7 @@
             <div class="col-sm-2">
                 <div id="weatherWrapper"></div>
                 <div class="card border-success mb-3">
-                    <div class="card-header" style="color:black; font-weight: bold;text-align: center">Tell us about Yourself</div>
+                    <div class="card-header" >Tell us about Yourself</div>
                     <div class="card-body">
                         <form>
                             <div class="form-group row">
@@ -74,11 +60,12 @@
                             <div class="form-group row">
                                 <input class="form-control" id="location-input" placeholder="Location" type="text">
                             </div>
-                            <button class="btn btn-primary" id="add-visitor-btn" type="submit">Submit</button>
+                            <button class="btn btn-primary" style="background-color: orangered" id="add-visitor-btn" type="submit">Submit</button>
                         </form><br>
                         <div class="card card-primary">
                             <div class="card-heading">
-                                <p class="card-title" style="color:black; font-weight: bold;text-align: center;margin-top: 5px;margin-bottom: 5px";><strong>Recent Visitors</strong></p>
+                                <div class="card-header" >Recent Visitors</div>
+                                <!-- <p class="card-title" style="color:black; background-color: orangered; font-weight: bold;text-align: center;margin-top: 5px;margin-bottom: 5px";><strong>Recent Visitors</strong></p> -->
                             </div> 
                             <div class="card-body">
                                 <table class="table table-hover" id='visitor-table'>
