@@ -8,7 +8,8 @@ body{
  
    header {
     text-align:center;
-    margin-top: 0%;
+    margin-top: -25px;
+    margin-bottom: 10px;
     color:black;
      background-image: url("../images/header-background.jpg");	
   }
@@ -55,8 +56,32 @@ body{
           display: inline-block;
        }
        
-
+       footer {
+         text-align: center;
+        padding: 10px 5px;
+        background-color: goldenrod;
+        color: #fff;
+    }
+ /* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+    .column {
+      flex: 50%;
+    }
+  }
   
+  /* * If screen size is more than 600px wide, set the font-size of <div> to 80px */ 
+@media screen and (min-width: 600px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+
+/* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  div.example {
+    font-size: 30px;
+  }
+}
   
     
   
