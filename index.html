@@ -6,7 +6,7 @@
 
     <title>Lets Travel</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!--JS lib-->
     <link rel="shortcut icon" type="image/x-icon" href="https://umn.bootcampcontent.com/assets/favicon-075eba76312e8421991a0c1f89a89ee81678bcde72319dd3e8047e2a47cd3a42.ico" id="favicon" />
@@ -27,24 +27,20 @@
 <body>
     <header>
         <h1><strong>The Beaten Path</strong></h1>
-    </header>
-    <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg">
-        <div class="navbar-brand" style="color: black"><strong> Never stop doing things for the first time!</strong></div>
-
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button"  style="background-color: orangered" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lets go Places!</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#" value="sightSeeing"><strong>Sight Seeing</strong></a>
-                <a class="dropdown-item" href="#" value="beach"><strong>Beach</strong></a>
-                <a class="dropdown-item" href="#" value="hiking"><strong>Hiking</strong></a>
-                <a class="dropdown-item" href="#" value="history"><strong>History</strong></a>
-                <a class="dropdown-item" href="#" value="arts"><strong>Arts</strong></a>
-                <a class="dropdown-item" href="#" value="skiing"><strong>Skiing</strong></a>
-            </div>
-        </div>     
-    </nav>
-        <!--end -->
+                <button class="btn btn-secondary dropdown-toggle" type="button"  style="background-color: orangered" 
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <stong> Lets go Places! </stong></button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" value="sightSeeing"><strong>Sight Seeing</strong></a>
+                    <a class="dropdown-item" href="#" value="beach"><strong>Beach</strong></a>
+                    <a class="dropdown-item" href="#" value="hiking"><strong>Hiking</strong></a>
+                    <a class="dropdown-item" href="#" value="history"><strong>History</strong></a>
+                    <a class="dropdown-item" href="#" value="arts"><strong>Arts</strong></a>
+                    <a class="dropdown-item" href="#" value="skiing"><strong>Skiing</strong></a>
+                </div>
+            </div>   
+    </header>
+    
 
     <div id="headerContent" class="container-fluid">
         <div class="row">
@@ -65,7 +61,8 @@
                         <div class="card card-primary">
                             <div class="card-heading">
                                 <div class="card-header" >Recent Visitors</div>
-                                <!-- <p class="card-title" style="color:black; background-color: orangered; font-weight: bold;text-align: center;margin-top: 5px;margin-bottom: 5px";><strong>Recent Visitors</strong></p> -->
+                                <!-- <p class="card-title" style="color:black; background-color: orangered; font-weight:
+                                     bold;text-align: center;margin-top: 5px;margin-bottom: 5px";><strong>Recent Visitors</strong></p> -->
                             </div> 
                             <div class="card-body">
                                 <table class="table table-hover" id='visitor-table'>
@@ -106,6 +103,12 @@
     </div>
    
 <script type="text/javascript" src="assets/javaScript/main.js"></script>
+<footer class="footer">
+    <div class="footerContainer">
+       &#169; University of Minnesota Coding Bootcamp. HHJSS Group Project 07/2018
+    </div>
+
+</footer>
 
 </body>
 </html>
