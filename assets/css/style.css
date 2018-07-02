@@ -6,12 +6,28 @@ body{
         font-size: medium ;
       }
  
-     
    header {
     text-align:center;
     margin-top: 0%;
     color:black;
-    /* background-image: url("../images/header.jpg");	 */
+     background-image: url("../images/header-background.jpg");	
+  }
+  .dropdown-menu{
+    background-color: rgb(243, 190, 93);
+  }
+.container{
+  width:100%;
+}
+  .navbar-brand{
+    margin-left: 500px;
+    color: teal;
+  }
+  .card-header{
+    background-color: orangered;
+    color:black;
+    font-weight: bold;
+    text-align: center;
+
   }
    #coverImage{
      background-image: url("../images/cover-photo.jpg");
@@ -27,48 +43,13 @@ body{
   img.mainImage {max-height:300px}
   span.stars, span.stars span {
       display: block;
-      background: url(assets/images/stars.png) 0 -16px repeat-x;
+      background: url(../images/stars.png) 0 -16px repeat-x;
       width: 80px;
       height: 16px;
   }
-  span.stars span {background-position: 0 0;}
-
-
-   body{
-     background-color:bisque;
-       }
-
-       .nav-linkdropdown-toggle{
-         font-size: medium ;
-       }
+  span.stars span {background-position: 0 0;
   
-      
-    header {
-     text-align:center;
-     margin-top: 0%;
-     color:black;
-     /* background-image: url("../images/header.jpg");	 */
    }
-    #coverImage{
-      background-image: url("../images/cover-photo.jpg");
-      background-size: 780px 600px;
-    }
-     .navbar {
-     background-color:goldenrod; padding:15px;text-align:center;
-     
-   }
-   ul.search-results li {list-style-type: none;}
-        .photo-box-img {margin-right:10px;}
-        img.mainImage {max-height:300px}
-        span.stars, span.stars span {
-            display: block;
-            background: url(assets/images/stars.png) 0 -16px repeat-x;
-            width: 80px;
-            height: 16px;
-        }
-        span.stars span {background-position: 0 0;
-        }
-    
         #mainImage li {
           list-style: none;
           display: inline-block;
